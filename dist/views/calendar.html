@@ -1,0 +1,75 @@
+<h3>Dependency</h3> <p><a href="https://angular-ui.github.io/bootstrap/#/datepicker" target="_blank">angular-bootstrap</a></p> <hr> <h3>Examples</h3> <div> <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre> <h4>Inline</h4> <div style="display:inline-block; min-height:290px"> <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker> </div> <h4>Popup</h4> <div class="row"> <div class="col-md-6"> <p class="input-group"> <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close"> <span class="input-group-btn"> <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button> </span> </p> </div> </div> <div class="row"> <div class="col-md-6"> <label>Format:</label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></select> </div> </div> <hr> <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button> <button type="button" class="btn btn-sm btn-default" ng-click="dt = '2009-08-24'">2009-08-24</button> <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button> <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button> </div> <hr> <h3>Code</h3> <h5>HTML</h5> <pre>
+	<code class="language-markup" prism>
+&lt;div ng-controller="DatepickerDemoCtrl"&gt;
+    &lt;pre&gt;Selected date is: &lt;em&gt;{{dt | date:'fullDate' }}&lt;/em&gt;&lt;/pre&gt;
+
+    &lt;h4&gt;Inline&lt;/h4&gt;
+    &lt;div style="display:inline-block; min-height:290px;"&gt;
+        &lt;datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"&gt;&lt;/datepicker&gt;
+    &lt;/div&gt;
+
+    &lt;h4&gt;Popup&lt;/h4&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;
+            &lt;p class="input-group"&gt;
+              &lt;input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" /&gt;
+              &lt;span class="input-group-btn"&gt;
+                &lt;button type="button" class="btn btn-default" ng-click="open($event)"&gt;&lt;i class="glyphicon glyphicon-calendar"&gt;&lt;/i&gt;&lt;/button&gt;
+              &lt;/span&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-6"&gt;
+            &lt;label&gt;Format:&lt;/label&gt; &lt;select class="form-control" ng-model="format" ng-options="f for f in formats"&gt;&lt;option&gt;&lt;/option&gt;&lt;/select&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;hr /&gt;
+    &lt;button type="button" class="btn btn-sm btn-info" ng-click="today()"&gt;Today&lt;/button&gt;
+    &lt;button type="button" class="btn btn-sm btn-default" ng-click="dt = '2009-08-24'"&gt;2009-08-24&lt;/button&gt;
+    &lt;button type="button" class="btn btn-sm btn-danger" ng-click="clear()"&gt;Clear&lt;/button&gt;
+    &lt;button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction"&gt;Min date&lt;/button&gt;
+&lt;/div&gt;
+	</code>
+</pre> <h5>JavaScript</h5> <pre>
+	<code class="language-javascript" prism>
+		
+angular.module('angularShowcaseApp')
+  .controller('CalendarCtrl', function ($scope) {
+      $scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  // Disable weekend selection
+  $scope.disabled = function(date, mode) {
+    return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yy',
+    startingDay: 1
+  };
+
+  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.format = $scope.formats[0];
+  });
+	</code>
+</pre>
