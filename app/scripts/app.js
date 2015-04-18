@@ -35,6 +35,10 @@ angular
         templateUrl: 'views/calendar.html',
         controller: 'CalendarCtrl'
       })
+      .when('/oneMenu', {
+        templateUrl: 'views/onemenu.html',
+        controller: 'OnemenuCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
