@@ -1,38 +1,84 @@
 <h3>Dependency</h3>
-<p><a href="https://angular-ui.github.io/bootstrap/#/typeahead" target="_blank">angular-bootstrap</a></p>
+<p><a href="https://github.com/wpalahnuk/ngAutocomplete" target="_blank">https://github.com/wpalahnuk/ngAutocomplete</a></p>
 <hr/>
 
 
 
 <h3>Examples</h3>
-<div class='container-fluid'>
-    <h4>Static arrays</h4>
-    <pre>Model: {{selected | json}}</pre>
-    <input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control">
-</div>
+<form id="form" role="form">
+
+    <div class="form-group move-down">
+        <label for="Autocomplete">Generic Autocomplete</label>
+        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result1" details="details1" options="options1"/>
+    </div>
+    <div>result: {{result1}}</div>
+
+    <div class="form-group move-down">
+        <label for="Autocomplete">Autocomplete - Cities in Canada</label>
+        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result2" details="details2" options="options2"/>
+    </div>
+    <div>result: {{result2}}</div>
+    
+    <div class="form-group move-down">
+        <label for="Autocomplete">Autocomplete - Establishments in the UK</label>
+        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result3" details="details3" options="options3"/>
+    </div> 
+     <div>result: {{result3}}</div>
+</form>
+
+
  <hr/>
-
-
 
 <h3>Code</h3>
 <h5>HTML</h5>
 <pre>
 	<code class="language-markup" prism>
-&lt;div class='container-fluid'&gt;
-	&lt;h4&gt;Static arrays&lt;/h4&gt;
-	&lt;pre&gt;Model: {{selected | json}}&lt;/pre&gt;
-	&lt;input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control"&gt;
- &lt;/div&gt;
+&lt;script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"&gt;&lt;/script&gt;
+&lt;form id="form" role="form"&gt;
+
+    &lt;div class="form-group move-down"&gt;
+        &lt;label for="Autocomplete"&gt;Generic Autocomplete&lt;/label&gt;
+        &lt;input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result1" details="details1" options="options1"/&gt;
+    &lt;/div&gt;
+    &lt;div&gt;result: {{result1}}&lt;/div&gt;
+
+    &lt;div class="form-group move-down"&gt;
+        &lt;label for="Autocomplete"&gt;Autocomplete - Cities in Canada&lt;/label&gt;
+        &lt;input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result2" details="details2" options="options2"/&gt;
+    &lt;/div&gt;
+    &lt;div&gt;result: {{result2}}&lt;/div&gt;
+    
+    &lt;div class="form-group move-down"&gt;
+        &lt;label for="Autocomplete"&gt;Autocomplete - Establishments in the UK&lt;/label&gt;
+        &lt;input type="text" id="Autocomplete" class="form-control" ng-autocomplete ng-model="result3" details="details3" options="options3"/&gt;
+    &lt;/div&gt; 
+     &lt;div&gt;result: {{result3}}&lt;/div&gt;
+&lt;/form&gt;
 	</code>
 </pre>
 <h5>JavaScript</h5>
 <pre>
 	<code class="language-javascript" prism>
-		angular.module('angularShowcaseApp')
-		  .controller('AutocompleteCtrl', function ($scope) {
-				$scope.selected = undefined;
-				$scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Dakota', 'North Carolina', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-		});
+angular.module('angularShowcaseApp')
+  .controller('AutocompleteCtrl', function ($scope) {
+	$scope.result1 = '';
+    $scope.options1 = null;
+    $scope.details1 = '';
+
+    $scope.result2 = '';
+    $scope.options2 = {
+      country: 'ca',
+      types: '(cities)'
+    };    $scope.details2 = '';
+        
+    $scope.result3 = '';
+    $scope.options3 = {
+      country: 'gb',
+      types: 'establishment'
+    };
+    $scope.details3 = '';
+
+});
 	</code>
 </pre>
 
