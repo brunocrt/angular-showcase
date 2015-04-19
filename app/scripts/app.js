@@ -39,6 +39,10 @@ angular
         templateUrl: 'views/onemenu.html',
         controller: 'OnemenuCtrl'
       })
+      .when('/inputText', {
+        templateUrl: 'views/inputtext.html',
+        controller: 'InputtextCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
