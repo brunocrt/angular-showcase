@@ -8,6 +8,8 @@
  * Controller of the angularShowcaseApp
  */
 angular.module('angularShowcaseApp')
-  .controller('InputtextCtrl', function () {
-    
+  .controller('InputtextCtrl', function ($scope) {
+    $scope.example = {
+        text: 'guest'
+     };
   });

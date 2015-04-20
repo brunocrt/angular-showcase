@@ -1,7 +1,9 @@
-<h3>Dependency</h3> <p>None</p> <hr> <h3>Examples</h3> <p><select ng-model="selectedItem" ng-options="item as item.name for item in items"></select></p> <p>Result : {{selectedItem | json}}</p> <hr> <h3>Code</h3> <h5>HTML</h5> <pre>
+<h3>Dependency</h3> <p>None</p> <hr> <h3>Examples</h3> <div ng-controller="OnemenuCtrl"> <p><select ng-model="selectedItem" ng-options="item as item.name for item in items"></select></p> <p>Result : {{selectedItem | json}}</p> </div> <hr> <h3>Code</h3> <h5>HTML</h5> <pre>
 	<code class="language-markup" prism>
-&lt;p&gt;&lt;select ng-model="selectedItem" ng-options="item.id as item.name for item in items"&gt;&lt;/select&gt;&lt;/p&gt;
-&lt;p&gt;Result : {{selectedItem | json}}&lt;/p&gt;
+&lt;div ng-controller="OnemenuCtrl"&gt;
+	&lt;p&gt;&lt;select ng-model="selectedItem" ng-options="item.id as item.name for item in items"&gt;&lt;/select&gt;&lt;/p&gt;
+	&lt;p&gt;Result : {{selectedItem | json}}&lt;/p&gt;
+&lt;/div&gt;
 	</code>
 </pre> <h5>JavaScript</h5> <pre>
 	<code class="language-javascript" prism>

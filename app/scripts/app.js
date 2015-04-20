@@ -43,6 +43,10 @@ angular
         templateUrl: 'views/inputtext.html',
         controller: 'InputtextCtrl'
       })
+      .when('/oneRadio', {
+        templateUrl: 'views/oneradio.html',
+        controller: 'OneradioCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
