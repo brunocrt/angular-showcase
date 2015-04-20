@@ -1,4 +1,4 @@
-# angular-showcase
+# angular-showcase [![Build Status](https://travis-ci.org/paoesco/angular-showcase.svg)](https://travis-ci.org/paoesco/angular-showcase) [![Dependency Status](https://gemnasium.com/paoesco/angular-showcase.svg)](https://gemnasium.com/paoesco/angular-showcase)
 Angular Components Showcase
 
 ## Demo 
