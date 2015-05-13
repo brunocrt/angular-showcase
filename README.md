@@ -1,4 +1,4 @@
-# angular-showcase [![Build Status](https://travis-ci.org/paoesco/angular-showcase.svg)](https://travis-ci.org/paoesco/angular-showcase) [![Dependency Status](https://gemnasium.com/paoesco/angular-showcase.svg)](https://gemnasium.com/paoesco/angular-showcase)
+# angular-showcase [![Build Status](https://travis-ci.org/paoesco/angular-showcase.svg)](https://travis-ci.org/paoesco/angular-showcase) [![Dependency Status](https://www.versioneye.com/user/projects/5541c7af6f8344ac93000234/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5541c7af6f8344ac93000234) [![Coverage Status](https://coveralls.io/repos/paoesco/angular-showcase/badge.svg)](https://coveralls.io/r/paoesco/angular-showcase)
 Angular Components Showcase
 
 ## Demo 
