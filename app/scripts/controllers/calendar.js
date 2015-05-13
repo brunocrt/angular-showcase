@@ -43,16 +43,18 @@ angular.module('angularShowcaseApp')
 	  $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
 	  $scope.format = $scope.formats[0];
 	  
-}).directive('datepickerPopup', function (dateFilter, datepickerPopupConfig) {
-    return {
-        restrict: 'A',
-        priority: 1,
-        require: 'ngModel',
-        link: function(scope, element, attr, ngModel) {
-            var dateFormat = attr.datepickerPopup || datepickerPopupConfig.datepickerPopup;
-            ngModel.$formatters.push(function (value) {
-                return dateFilter(value, dateFormat);
-            });
-        }
-    };
-});
+})
+//.directive('datepickerPopup', function (dateFilter, datepickerPopupConfig) {
+//    return {
+//        restrict: 'A',
+//       priority: 1,
+//        require: 'ngModel',
+//        link: function(scope, element, attr, ngModel) {
+//            var dateFormat = attr.datepickerPopup || datepickerPopupConfig.datepickerPopup;
+//            ngModel.$formatters.push(function (value) {
+//                return dateFilter(value, dateFormat);
+//            });
+//        }
+//    };
+//})
+;
