@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
+	'validation.match'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -45,6 +46,10 @@ angular
       .when('/oneRadio', {
         templateUrl: 'views/oneradio.html',
         controller: 'OneradioCtrl'
+      })
+      .when('/password', {
+        templateUrl: 'views/password.html',
+        controller: 'PasswordCtrl'
       })
       .otherwise({
         redirectTo: '/'
